@@ -18,7 +18,7 @@ def sender_mail(html):
             config_data = json.load(f)
         for receiver in config_data['receivers']:
             msg = multipart.MIMEMultipart()
-            msg['From'] = config_data['user']['user_name']
+            msg['From'] = config_data['user']['user_name'] + '<' + config_data['user']['user_email'] + '>'
             msg['To'] = receiver
             msg['subject'] = header.Header('subject', 'utf-8')
             texts = html
