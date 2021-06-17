@@ -8,7 +8,7 @@ import json
 import data
 
 
-def sender_mail(html):
+def sender_mail(html, mode):
     if os.path.exists('./data.json') != True:
         print("您还没有配置您的邮箱\n")
         data.config()
@@ -16,9 +16,20 @@ def sender_mail(html):
     else:        
         with open("./data.json", encoding='utf-8') as f:
             config_data = json.load(f)
+
+        if mode == "qq":
+            host = 'smtp.qq.com'
+            port = 25
+        elif mode == "163":
+            host = 'smtp.163.com'
+            port = 25
+        elif mode == "gmail":
+            host = 'smtp.gmail.com'
+            port = 587
+
         try:
-            smt_p = smtplib.SMTP(host='smtp.163.com')
-            smt_p.connect(host='smtp.163.com', port=25)
+            smt_p = smtplib.SMTP(host)
+            smt_p.connect(host, port)
             sender, password = config_data['user']['user_email'], config_data['user']['user_passwd']
             print("正在登录账号 -> " + config_data['user']['user_email'])
             smt_p.ehlo()
