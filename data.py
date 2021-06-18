@@ -4,11 +4,10 @@ import json
 def config():
 	print("==============开始配置你的邮箱=============")
 	user_name = input("请输入你的名字: ")
-	user_email = input("请输入你的网易邮箱：")
-	user_passwd = input("请输入你的邮箱密码(应为SMTP秘钥)：")
+	user_email = input("请输入你的邮箱(支持QQ、网易、谷歌）：")
+	user_passwd = input("请输入你的邮箱密码(应为SMTP码)：")
 	receivers = input("请输入接受者的邮件(多个用户请使用逗号隔开):\n")
 	receivers = receivers.split(",")
-	# TODO: 将数据添加到json文件->data.json中
 	data_dict = {
 		'user':{
 		'user_name': user_name,
