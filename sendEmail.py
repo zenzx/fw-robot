@@ -54,7 +54,7 @@ def sender_mail(html):
                 msg = multipart.MIMEMultipart()
                 msg['From'] = config_data['user']['user_name'] + '<' + config_data['user']['user_email'] + '>'
                 msg['To'] = receiver
-                msg['subject'] = header.Header('subject', 'utf-8')
+                msg['subject'] = header.Header('FwRobot😆的早安问候', 'utf-8')
                 texts = html
                 msg.attach(text.MIMEText(texts, 'html', 'utf-8'))
                 print("正在发送给 -> " + receiver)
