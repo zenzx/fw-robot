@@ -17,13 +17,13 @@ def detect():
         with open("./data.json", encoding='utf-8') as f:
             config_data = json.load(f)
         host = re.findall('@(.*)\.com', config_data['user']['user_email'])
-        if host == "qq":
+        if host[0] == "qq":
             host = 'smtp.qq.com'
             port = 25
-        elif host == "163":
+        elif host[0] == "163":
             host = 'smtp.163.com'
             port = 25
-        elif host == "gmail":
+        elif host[0] == "gmail":
             host = 'smtp.gmail.com'
             port = 587
         else:
